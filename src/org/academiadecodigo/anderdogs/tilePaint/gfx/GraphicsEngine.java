@@ -15,6 +15,7 @@ public class GraphicsEngine {
         this.grid = grid;
         drawGrid();
         grid.getCursor().setRect(new Rectangle(convert(grid.getCursor().getPosition().getX()), convert(grid.getCursor().getPosition().getY()), CELL_SIZE, CELL_SIZE));
+        grid.getCursor().getRect().setColor(Color.CYAN);
         drawCursor();
     }
 

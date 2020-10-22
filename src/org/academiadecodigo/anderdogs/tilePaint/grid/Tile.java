@@ -27,4 +27,13 @@ public class Tile {
     public void paint() {
         rect.setColor(Color.BLACK);
     }
+
+    public void clear() {
+        rect.setColor(Color.WHITE);
+    }
+
+    @Override
+    public String toString() {
+        return rect.getColor().equals(Color.BLACK) ? "1" : "0";
+    }
 }

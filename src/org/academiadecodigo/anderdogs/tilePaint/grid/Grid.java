@@ -62,4 +62,17 @@ public class Grid {
     public int getMaxY() {
         return maxY;
     }
+
+    @Override
+    public String toString() {
+        String res = "";
+        for (int y = 0; y < maxY; y++) {
+            for (int x = 0; x < maxX; x++) {
+                Position p = new Position(x, y);
+                res = res.concat(tiles.get(p).toString() + ", ");
+            }
+            res = res.concat("\n");
+        }
+        return res;
+    }
 }

@@ -6,6 +6,8 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
+import java.io.IOException;
+
 
 public class Controls implements KeyboardHandler {
     private TilePaint tp;
@@ -19,7 +21,7 @@ public class Controls implements KeyboardHandler {
 
         int[] myKeys = {KeyboardEvent.KEY_H, KeyboardEvent.KEY_J, KeyboardEvent.KEY_K, KeyboardEvent.KEY_L,
                         KeyboardEvent.KEY_UP, KeyboardEvent.KEY_DOWN,KeyboardEvent.KEY_LEFT, KeyboardEvent.KEY_RIGHT,
-                        KeyboardEvent.KEY_SPACE, 27}; //27 = ESC
+                        KeyboardEvent.KEY_SPACE, KeyboardEvent.KEY_B, KeyboardEvent.KEY_S, 27}; //27 = ESC
 
         for (int i = 0; i < myKeys.length; i++) {
             KeyboardEvent keyboardEvent = new KeyboardEvent();
@@ -37,7 +39,11 @@ public class Controls implements KeyboardHandler {
      */
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
-        tp.inputKey(keyboardEvent);
+        try {
+            tp.inputKey(keyboardEvent);
+        } catch (IOException e) {
+            System.out.println("something went wrong");
+        }
     }
 
 
